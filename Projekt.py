@@ -38,10 +38,11 @@ while gra_dziala:
     ekran.blit(tlo, (0,0))
     for jablko in jablka:
         ekran.blit(jablko.obraz, jablko.rect)
-        
+
     pygame.display.flip()
 
     zegar.tick(30)
 
 time.sleep(3)
 pygame.quit()
+
