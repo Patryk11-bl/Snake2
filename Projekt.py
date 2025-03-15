@@ -1,7 +1,7 @@
 import pygame
 import random
 import time
-
+from Jablko import Jablko
 
 SZEROKOSC_EKRANU = 800
 WYSOKOSC_EKRANU = 608
@@ -19,6 +19,11 @@ pygame.init()
 ekran = pygame.display.set_mode([SZEROKOSC_EKRANU,WYSOKOSC_EKRANU])
 zegar = pygame.time.Clock()
 
+jablko = Jablko()
+jablka = pygame.sprite.Group()
+jablka.add(jablko)
+
+
 gra_dziala = True
 
 while gra_dziala:
@@ -31,7 +36,9 @@ while gra_dziala:
             gra_dziala = False
 
     ekran.blit(tlo, (0,0))
-
+    for jablko in jablka:
+        ekran.blit(jablko.obraz, jablko.rect)
+        
     pygame.display.flip()
 
     zegar.tick(30)
